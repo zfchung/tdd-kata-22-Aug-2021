@@ -1,8 +1,8 @@
 export function add(input?: string): number {
   if (input) {
-    const separator: RegExp = /\n|,/;
+    const delimiter: RegExp = /\n|,/;
     const result = input
-      .split(separator)
+      .split(delimiter)
       .map(Number)
       .reduce((accumulator, currentValue) => accumulator + currentValue);
     return result;
