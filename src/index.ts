@@ -12,7 +12,8 @@ function calculation(input: string, delimiter: RegExp | string): number {
   const numbers: number[] = input.split(delimiter).map(Number);
   const hasNegative: boolean = numbers.some((value) => value < 0);
   if (hasNegative) {
-    throw "negative not allowed";
+    let negativeNumbers = numbers.filter((value) => value < 0).join(",");
+    throw "negative not allowed: " + negativeNumbers;
   }
   return numbers.reduce(
     (accumulator, currentValue) => accumulator + currentValue
