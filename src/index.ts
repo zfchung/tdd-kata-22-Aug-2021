@@ -1,3 +1,4 @@
+// 1 hour
 export function add(input?: string): number {
   if (input) {
     if (input.substring(0, 2) == "//") {
