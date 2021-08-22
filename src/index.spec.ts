@@ -26,4 +26,9 @@ describe("Test add function", () => {
     expect(add("1\n2,3")).toEqual(6);
     expect(add("11\n222,9")).toEqual(242);
   });
+  it("should support different delimiter", () => {
+    expect(add("//;\n1;2;3")).toEqual(6);
+    expect(add("//@\n1@2@3")).toEqual(6);
+    expect(add("//$\n1$2$3")).toEqual(6);
+  });
 });
