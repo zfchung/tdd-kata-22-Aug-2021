@@ -22,4 +22,8 @@ describe("Test add function", () => {
     expect(add("11,23,555")).toEqual(589);
     expect(add("2,2,2,2,2,2,2,2,2,2,2,2")).toEqual(24);
   });
+  it("should recognize '\n' and ',' as a valid number separator", () => {
+    expect(add("1\n2,3")).toEqual(6);
+    expect(add("11\n222,9")).toEqual(242);
+  });
 });
