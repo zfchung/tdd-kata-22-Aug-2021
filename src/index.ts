@@ -9,10 +9,14 @@ export function add(input?: string): number {
 }
 
 function calculation(input: string, delimiter: RegExp | string): number {
-  return input
-    .split(delimiter)
-    .map(Number)
-    .reduce((accumulator, currentValue) => accumulator + currentValue);
+  const numbers: number[] = input.split(delimiter).map(Number);
+  const hasNegative: boolean = numbers.some((value) => value < 0);
+  if (hasNegative) {
+    throw "negative not allowed";
+  }
+  return numbers.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
 }
 
 function fixedDelimiter(input: string): number {
