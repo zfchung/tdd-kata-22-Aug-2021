@@ -3,10 +3,14 @@ export function add(input?: string): number {
     if (input.substring(0, 2) == "//") {
       return customDelimiter(input);
     } else {
-      const delimiter: RegExp = /\n|,/;
-      return calculation(input, delimiter);
+      return fixedDelimiter(input);
     }
   } else return 0;
+
+  function fixedDelimiter(input: string): number {
+    const delimiter: RegExp = /\n|,/;
+    return calculation(input, delimiter);
+  }
 
   function customDelimiter(input: string): number {
     const delimiter: string = input.charAt(2);
