@@ -6,17 +6,6 @@ export function add(input?: string): number {
       return fixedDelimiter(input);
     }
   } else return 0;
-
-  function fixedDelimiter(input: string): number {
-    const delimiter: RegExp = /\n|,/;
-    return calculation(input, delimiter);
-  }
-
-  function customDelimiter(input: string): number {
-    const delimiter: string = input.charAt(2);
-    const splitString: string = input.split("\n")[1];
-    return calculation(splitString, delimiter);
-  }
 }
 
 function calculation(input: string, delimiter: RegExp | string): number {
@@ -24,4 +13,15 @@ function calculation(input: string, delimiter: RegExp | string): number {
     .split(delimiter)
     .map(Number)
     .reduce((accumulator, currentValue) => accumulator + currentValue);
+}
+
+function fixedDelimiter(input: string): number {
+  const delimiter: RegExp = /\n|,/;
+  return calculation(input, delimiter);
+}
+
+function customDelimiter(input: string): number {
+  const delimiter: string = input.charAt(2);
+  const splitString: string = input.split("\n")[1];
+  return calculation(splitString, delimiter);
 }
